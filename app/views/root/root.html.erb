@@ -1,2 +1,29 @@
 <h1>Root#root</h1>
-<p>Find me in app/views/root/root.html.erb</p>
+<div class="sidebar">
+  <ul>
+    <li><%= current_user.email %></li>
+    <li>News Feed</li>
+  </ul>
+</div>
+<div class="content">
+  <form action="<%= feed_items_url %>" 
+        method="post">
+    <input type="hidden" 
+           name="authenticity_token" 
+           value="<%= form_authenticity_token %>">
+    <input type = "hidden" 
+           name="feed_item[type]" 
+           value="StatusUpdate">
+    <label for="description">Update your status</label>
+    <br>
+    <textarea name="feed_item[description]"></textarea>
+    <br>
+    <input type="submit" value="Update Status">
+
+  </form>
+  <ul>
+  <% @feed_items.each do |feed_item| %>
+    <li><%= feed_item.description %></li>
+  <% end %> 
+  </ul>
+</div>

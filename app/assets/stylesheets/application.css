@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
  */
+
+.content {
+  float :left;
+}
+
+.sidebar {
+  float :left;
+}

@@ -1,6 +1,9 @@
 SpaceFace::Application.routes.draw do
 
+  root :to => "root#root"
   devise_for :users
 
-  root :to => "root#root"
+  resources :feed_items
+
+  
 end
