@@ -10,4 +10,17 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :feed_items
+
+  has_many :requests,
+           :foreign_key => :friend_id,
+           :class_name => "FriendRequest"
+
+  has_many :friend_requests,
+           :through => :requests,
+           :source => :user
+
+  has_many :friendships
+  has_many :friends,
+           :through => :friendships
+
 end

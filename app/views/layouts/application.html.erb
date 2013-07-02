@@ -9,7 +9,20 @@
 <body>
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
+  <div>
+    <%= link_to "Sign out",
+      destroy_user_session_path,
+      :method => :delete %>
+  </div>
 
+<% if current_user %>
+  <div class="sidebar">
+    <ul>
+      <li><%= current_user.email %></li>
+      <li><%= link_to "Find friends", users_url %></li>
+    </ul>
+  </div>
+<% end %>
 <%= yield %>
 
 </body>

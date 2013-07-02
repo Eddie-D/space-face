@@ -3,7 +3,6 @@ class RootController < ApplicationController
 
   def root
     @feed_items = current_user.feed_items.reverse
-
     render :root
   end
 
