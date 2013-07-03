@@ -1,14 +1,3 @@
-<!-- <div id="sidebar sidebar-nav">
-  <ul id="dashboard-menu">
-    <li>
-      <a href="#">
-        <i class="icon-home"></i>
-        <span>Feed</span>
-      </a>
-    </li>
-    <li><a href="/#find_friends">Find Friends</a>
-  </ul>
-</div>  -->
 
 <div id="content" class="large-6 columns push-3" ></div>
 
@@ -19,7 +8,10 @@
     <h5> Name </h5>
     <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
       <section class="section">
-        <h5 class="title"><a href="#"> News Feed</a></h5>
+        <h5 class="title"><a href="#">News Feed</a></h5>
+      </section>
+      <section class="section">
+        <h5 class="title"><a href="#/friends">Friends</a></h5>
       </section>
     </div>
 
@@ -33,6 +25,5 @@
 <script>
   $(function() {
     SpaceFace.initialize();
-    SpaceFace.CurrentUser = JSON.parse($("#current_user").html());
   })
 </script>

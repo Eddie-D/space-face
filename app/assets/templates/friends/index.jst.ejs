@@ -1,0 +1,11 @@
+<% friends.each(function(friend) { %>
+  <div class="row">
+    <div class="small-3 large-2 columns "><img src="http://placehold.it/80x80&text=[img]" /></div>
+    <div class="small-9 large-10 columns">
+      <p><strong><%= friend.get("name") %></strong> 
+      <br>
+      <%= friend.get("email") %>
+    </div>
+  </div>
+  <hr />
+<% }); %>

@@ -9,21 +9,22 @@
 <body style>
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
-
-  <nav class="top-bar">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="#">SpaceFace</a></h1>
-      </li>
-    </ul>
-    <section class="top-bar-section">
-      <ul class="right">
-        <li>
-          <%= link_to "Sign out", destroy_user_session_url, :method => :delete %>
+  <% if current_user %>
+    <nav class="top-bar">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">SpaceFace</a></h1>
         </li>
       </ul>
-    </section>
-  </nav>
+      <section class="top-bar-section">
+        <ul class="right">
+          <li>
+            <%= link_to "Sign out", destroy_user_session_url, :method => :delete %>
+          </li>
+        </ul>
+      </section>
+    </nav>
+  <% end %>
 
 <div class="row">
 <%= yield %>
