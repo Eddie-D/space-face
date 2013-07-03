@@ -9,4 +9,10 @@ class FeedItemsController < ApplicationController
       flash[:errors] << "Status could not be uploaded" 
     end
   end
+
+  def index
+    feed_items = current_user.feed_items.to_json(:include => :feedable)
+    render :json => feed_items
+    
+  end
 end

@@ -1,7 +1,5 @@
-
 class FeedItem < ActiveRecord::Base
-  attr_accessible :user_id, :description, :url, :type
+  attr_accessible :user_id, :feedable_id, :feedable_type
 
-  belongs_to :user
-
+  belongs_to :feedable, :polymorphic => true
 end

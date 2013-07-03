@@ -12,10 +12,10 @@
  *= require_tree .
  */
 
-.content {
+#content {
   float :left;
 }
 
-.sidebar {
+#sidebar {
   float :left;
 }

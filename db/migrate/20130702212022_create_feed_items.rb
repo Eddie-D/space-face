@@ -1,10 +1,9 @@
 class CreateFeedItems < ActiveRecord::Migration
   def change
     create_table :feed_items do |t|
-      t.string :type
       t.integer :user_id
-      t.text :description
-      t.string :url
+      t.integer :feedable_id
+      t.string :feedable_type
       t.timestamps
     end
   end

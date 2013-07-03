@@ -11,15 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130702174708) do
+ActiveRecord::Schema.define(:version => 20130702212022) do
 
   create_table "feed_items", :force => true do |t|
-    t.string   "type"
     t.integer  "user_id"
-    t.text     "description"
-    t.string   "url"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "feedable_id"
+    t.string   "feedable_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "friend_requests", :force => true do |t|
@@ -33,6 +32,13 @@ ActiveRecord::Schema.define(:version => 20130702174708) do
   create_table "friendships", :force => true do |t|
     t.integer  "user_id"
     t.integer  "friend_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "status_updates", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

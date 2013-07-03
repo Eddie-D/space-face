@@ -1,3 +1,0 @@
-class StatusUpdate < FeedItem
-
-end

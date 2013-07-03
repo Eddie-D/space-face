@@ -1,22 +1,18 @@
-<div class="content">
-  <form action="<%= feed_items_url %>" 
-        method="post">
-    <input type="hidden" 
-           name="authenticity_token" 
-           value="<%= form_authenticity_token %>">
-    <input type = "hidden" 
-           name="feed_item[type]" 
-           value="StatusUpdate">
-    <label for="description">Update your status</label>
-    <br>
-    <textarea name="feed_item[description]"></textarea>
-    <br>
-    <input type="submit" value="Update Status">
-
-  </form>
+<div id="sidebar">
   <ul>
-  <% @feed_items.each do |feed_item| %>
-    <li><%= feed_item.description %></li>
-  <% end %> 
+    <li>News Feed</li>
   </ul>
-</div>
+</div> 
+<div id="content"></div>
+
+
+<script type="application/json" id="current_user">
+  <%= current_user.to_json.html_safe %>
+</script>
+
+<script>
+  $(function() {
+    SpaceFace.initialize();
+    SpaceFace.CurrentUser = JSON.parse($("#current_user").html());
+  })
+</script>

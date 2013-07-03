@@ -15,14 +15,7 @@
       :method => :delete %>
   </div>
 
-<% if current_user %>
-  <div class="sidebar">
-    <ul>
-      <li><%= current_user.email %></li>
-      <li><%= link_to "Find friends", users_url %></li>
-    </ul>
-  </div>
-<% end %>
+
 <%= yield %>
 
 </body>
