@@ -31,7 +31,6 @@ SpaceFace.Routers.Posts = Backbone.Router.extend({
     });
     friends.fetch({
       success: function(a, b, c) {
-        console.log(b);
         var friendsView = new SpaceFace.Views.FriendsIndex({
           collection: friends
         });

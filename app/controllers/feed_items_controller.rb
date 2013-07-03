@@ -11,10 +11,13 @@ class FeedItemsController < ApplicationController
   end
 
   def index
-    feed_items = current_user.feed_items.to_json(:include => {:feedable => {
-                                                                :include => :user
-                                                                }
-                                                              })
+    users = current_user.friends
+    users << current_user
+    items = FeedItem.where(:user_id => users)
+    feed_items = items.to_json(:include => {:feedable => {
+                                              :include => :user
+                                              }
+                                            })
     render :json => feed_items
     
   end
