@@ -6,17 +6,27 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body style>
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
-  <div>
-    <%= link_to "Sign out",
-      destroy_user_session_path,
-      :method => :delete %>
-  </div>
 
+  <nav class="top-bar">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="#">SpaceFace</a></h1>
+      </li>
+    </ul>
+    <section class="top-bar-section">
+      <ul class="right">
+        <li>
+          <%= link_to "Sign out", destroy_user_session_url, :method => :delete %>
+        </li>
+      </ul>
+    </section>
+  </nav>
 
+<div class="row">
 <%= yield %>
-
+</div>
 </body>
 </html>

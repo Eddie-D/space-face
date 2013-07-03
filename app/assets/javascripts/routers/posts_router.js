@@ -22,7 +22,7 @@ SpaceFace.Routers.Posts = Backbone.Router.extend({
 
         that.$content.html(indexView.render().$el);
       }
-    })
+    });
   }
 
 });

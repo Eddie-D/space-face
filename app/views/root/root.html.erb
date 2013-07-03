@@ -1,10 +1,30 @@
-<div id="sidebar">
-  <ul>
-    <li>News Feed</li>
+<!-- <div id="sidebar sidebar-nav">
+  <ul id="dashboard-menu">
+    <li>
+      <a href="#">
+        <i class="icon-home"></i>
+        <span>Feed</span>
+      </a>
+    </li>
+    <li><a href="/#find_friends">Find Friends</a>
   </ul>
-</div> 
-<div id="content"></div>
+</div>  -->
 
+<div id="content" class="large-6 columns push-3" ></div>
+
+
+<div class="large-3 columns pull-6">
+  <div class="panel">
+    <a href="#"><img src="http://placehold.it/300x240&text=[img]" /></a>
+    <h5> Name </h5>
+    <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+      <section class="section">
+        <h5 class="title"><a href="#"> News Feed</a></h5>
+      </section>
+    </div>
+
+  </div>
+</div>
 
 <script type="application/json" id="current_user">
   <%= current_user.to_json.html_safe %>
