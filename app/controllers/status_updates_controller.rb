@@ -6,7 +6,12 @@ class StatusUpdatesController < ApplicationController
       build(params[:status_update])
 
     if status_update.save
-      render :json => status_update
+      feed_item = status_update.create_feed_item
+      feed_item = feed_item.to_json(:include => {:feedable => {
+                                                  :include => :user
+                                                  }
+                                                })
+      render :json => feed_item
     else
       render :json => status_update.errors, :status => 422
     end

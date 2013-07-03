@@ -6,6 +6,7 @@ SpaceFace::Application.routes.draw do
     resources :friends, :only => [:index]
   end
   resources :feed_items
+  resources :status_updates, :only => [:create]
 
   
 end

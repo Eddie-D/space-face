@@ -12,6 +12,11 @@ SpaceFace.Routers.Posts = Backbone.Router.extend({
 
   index: function() {
     var that = this;
+
+    that.$content.empty();
+    var formView = new SpaceFace.Views.PostForm();
+    that.$content.append(formView.render().$el);
+
     SpaceFace.Posts = new SpaceFace.Collections.Posts();
     SpaceFace.Posts.fetch({
       success: function(a, b, c) {
@@ -19,7 +24,7 @@ SpaceFace.Routers.Posts = Backbone.Router.extend({
           collection: SpaceFace.Posts
         });
 
-        that.$content.html(indexView.render().$el);
+        that.$content.append(indexView.render().$el);
       }
     });
   },

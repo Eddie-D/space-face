@@ -1,7 +1,8 @@
 class StatusUpdate < ActiveRecord::Base
-  after_save :create_feed_item
+  # after_save :create_feed_item
 
   attr_accessible :body, :user_id
+
 
   validates_presence_of :body, :user_id
 

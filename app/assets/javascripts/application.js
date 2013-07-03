@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.serializeJSON
+//= require foundation
 //= require underscore
 //= require backbone
 //= require space_face
@@ -22,3 +24,4 @@
 //= require_tree ./routers
 //= require_tree .
 //= require_tree ../../../vendor/assets/javascripts
+$(document).foundation();
