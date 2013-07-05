@@ -6,4 +6,9 @@ class UsersController < ApplicationController
     render :index
   end
 
+  def search
+    users = User.search(params[:search].downcase)
+    render :json => users.to_json.html_safe
+  end
+
 end

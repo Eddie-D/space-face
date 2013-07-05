@@ -3,14 +3,25 @@ SpaceFace.Routers.Posts = Backbone.Router.extend({
   initialize: function(options) {
     this.$content = options.$content;
     this.$sidebar = options.$sidebar; 
+    this.$topbar = options.$topbar;
   },
 
   routes: {
     "": "index",
-    "friends": "friends"
+    "friends": "friends",
+    "users/search?q=:search": "searchUsers"
+  },
+
+  topbar: function() {
+    var topbarView = new SpaceFace.Views.Topbar();
+    this.$topbar.html(topbarView.render().$el);
   },
 
   index: function() {
+
+    var topbarView = new SpaceFace.Views.Topbar();
+    this.$topbar.html(topbarView.render().$el);
+
     var that = this;
 
     that.$content.empty();
@@ -40,6 +51,28 @@ SpaceFace.Routers.Posts = Backbone.Router.extend({
           collection: friends
         });
         that.$content.html(friendsView.render().$el);
+      }
+    });
+  },
+
+  searchUsers: function(search) {
+    
+    var that = this;
+    var users = new SpaceFace.Collections.Users();
+    console.log("I am searching now!!!!");
+    $.ajax({
+      url: "/users/search",
+      data: {
+        search: search
+      },
+      success: function(data) {
+        var users = new SpaceFace.Collections.Users(data);
+        console.log(users);
+
+        var usersView = new SpaceFace.Views.FriendsIndex({
+          collection: users
+        });
+        that.$content.html(usersView.render().$el);
       }
     });
   }

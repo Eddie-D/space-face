@@ -5,10 +5,12 @@ window.SpaceFace = {
   Routers: {},
   initialize: function() {
     SpaceFace.CurrentUser = JSON.parse($("#current_user").html());
-    new SpaceFace.Routers.Posts({
+    router = new SpaceFace.Routers.Posts({
       "$content": $("#content"),
-      "$sidebar": $("#sidebar")
+      "$sidebar": $("#sidebar"),
+      "$topbar": $("#topbar")
     });
+
     Backbone.history.start();
   }
 

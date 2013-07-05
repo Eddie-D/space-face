@@ -25,4 +25,13 @@ class User < ActiveRecord::Base
   has_many :friends,
            :through => :friendships
 
+
+  def self.search(search)
+    if search
+      where(self.arel_table[:name].matches("%#{search}%"))
+    else
+      find(:all)
+    end
+  end
+
 end
