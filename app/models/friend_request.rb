@@ -8,14 +8,16 @@ class FriendRequest < ActiveRecord::Base
 
 
   def accept_request
-  
-  self.transaction do
-    self.update_attributes(:status => "accepted")
-    Friendship.create(:user_id => self.user_id,
-                      :friend_id => self.friend_id)
-    Friendship.create(:user_id => self.friend_id,
-                      :friend_id => self.user_id)
+    self.transaction do
+      Friendship.create(:user_id => self.user_id,
+                        :friend_id => self.friend_id)
+      Friendship.create(:user_id => self.friend_id,
+                        :friend_id => self.user_id)
+      self.destroy
+    end
   end
 
+  def serializable_hash(options = {})
+    super(options.merge({ :include => :user }))
   end
 end

@@ -4,7 +4,10 @@ window.SpaceFace = {
   Views: {},
   Routers: {},
   initialize: function() {
-    SpaceFace.CurrentUser = JSON.parse($("#current_user").html());
+
+    var currentUserJson = JSON.parse($("#current_user").html());
+    SpaceFace.CurrentUser = new SpaceFace.Models.User(currentUserJson);
+    
     router = new SpaceFace.Routers.Posts({
       "$content": $("#content"),
       "$sidebar": $("#sidebar"),

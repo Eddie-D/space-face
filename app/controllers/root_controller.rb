@@ -2,7 +2,7 @@ class RootController < ApplicationController
   before_filter :authenticate_user!
 
   def root
-    # @feed_items = current_user.feed_items.reverse
+    @user = current_user.to_json(:include => :requests)
     @photo = Photo.new
     render :root
   end

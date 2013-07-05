@@ -11,6 +11,9 @@ SpaceFace::Application.routes.draw do
   resources :feed_items
   resources :status_updates, :only => [:create]
   resources :photos, :only => [:create]
+  resource :friend_request, :only => [] do
+    post "accept", :on => :member
+  end
 
   
 end

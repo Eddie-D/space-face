@@ -20,6 +20,7 @@
 //=require jquery-fileupload/basic
 //= require backbone
 //= jqueryfileuploadbackbone
+//= require backbone-relational
 //= require space_face
 //= require_tree ../templates
 //= require_tree ./models
