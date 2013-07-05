@@ -13,9 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.serializeJSON
+//= require jquery.form
+
 //= require foundation
 //= require underscore
+//=require jquery-fileupload/basic
 //= require backbone
+//= jqueryfileuploadbackbone
 //= require space_face
 //= require_tree ../templates
 //= require_tree ./models

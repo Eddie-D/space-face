@@ -10,8 +10,31 @@
       <form>
         <input type="hidden" name="item_type" value="StatusUpdate">
         <textarea name="body"></textarea>
-        <input type="submit">
+        <input type="submit" class="post-status">
       </form>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="title" style="left: 87px">
+      <a href="#">Upload Photo</a>
+    </p>
+    <div class="content" data-slug="panel2" style>
+    <form 
+      action="/photos" 
+      enctype="multipart/form-data" 
+      id="uploadForm" 
+      method="post">
+      
+      <input 
+        name="authenticity_token" 
+        type="hidden" 
+        value= "<%= $('meta[name="csrf-token"]').attr('content') %>"
+      />
+
+      Upload : <input id="photo_photo" name="photo[photo]" type="file" /> 
+      <input name="commit" type="submit" value="Save Photo" class="post-photo" />
+    </form>
     </div>
   </section>
 </div>
