@@ -19,10 +19,6 @@ SpaceFace.Routers.Posts = Backbone.Router.extend({
   },
 
   index: function() {
-
-    var topbarView = new SpaceFace.Views.Topbar();
-    this.$topbar.html(topbarView.render().$el);
-
     var that = this;
 
     that.$content.empty();
@@ -43,20 +39,19 @@ SpaceFace.Routers.Posts = Backbone.Router.extend({
 
   friends: function() {
     var that = this;
-    var friends = new SpaceFace.Collections.Friends({
-      userId: SpaceFace.CurrentUser.id
-    });
-    friends.fetch({
-      success: function() {
-        console.log("rendering friends....")
+    
+    $.ajax({
+      url: "/users/" + SpaceFace.CurrentUser.id + "/friends",
+      success: function(data) {
+        console.log("Got friends!!")
+        console.log(data)
+        var friends = new SpaceFace.Collections.Users(data);
         var friendsView = new SpaceFace.Views.FriendsIndex({
           collection: friends
         });
         that.$content.html(friendsView.render().$el);
-      },
-      error: function() {
-
       }
+
     });
   },
 

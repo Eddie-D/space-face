@@ -9,6 +9,19 @@ SpaceFace.Models.User = Backbone.RelationalModel.extend({
     reverseRelation: {
       key: "receiver"
     }
-  }]
+  },{
+    type: Backbone.HasMany,
+    key:"friends",
+    relatedModel: "SpaceFace.Models.User",
+    collectionType: "SpaceFace.Collections.Users"
+  }],
+
+  isFriend: function() {
+    if (SpaceFace.CurrentUser.get("friends").findWhere({id: this.id})) {
+      return true;
+    }else {
+      return false;
+    }
+  }
 
 });
