@@ -48,10 +48,14 @@ SpaceFace.Routers.Posts = Backbone.Router.extend({
     });
     friends.fetch({
       success: function() {
+        console.log("rendering friends....")
         var friendsView = new SpaceFace.Views.FriendsIndex({
           collection: friends
         });
         that.$content.html(friendsView.render().$el);
+      },
+      error: function() {
+
       }
     });
   },
@@ -79,7 +83,6 @@ SpaceFace.Routers.Posts = Backbone.Router.extend({
   },
 
   profile: function() {
-    var that = this
     var requestsView = new SpaceFace.Views.FriendRequestsIndex({
       collection: SpaceFace.CurrentUser.get("friendRequests")
     });
