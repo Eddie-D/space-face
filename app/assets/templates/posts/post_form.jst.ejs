@@ -9,7 +9,7 @@
     <div class="content" data-slug="panel1" style>
       <form>
         <input type="hidden" name="item_type" value="StatusUpdate">
-        <textarea name="body"></textarea>
+        <textarea name="body" class="status-update"></textarea>
         <input type="submit" class="post-status">
       </form>
     </div>
@@ -32,7 +32,7 @@
         value= "<%= $('meta[name="csrf-token"]').attr('content') %>"
       />
 
-      <textarea name="photo[description]" ></textarea>
+      <textarea name="photo[description]" class="photo-description"></textarea>
       <br>
 
       Upload : <input id="photo_photo" name="photo[photo]" type="file" /> 

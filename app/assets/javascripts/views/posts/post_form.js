@@ -1,7 +1,6 @@
 SpaceFace.Views.PostForm = Backbone.View.extend({
 
   events: {
-    // 'click input[type="submit"]': "submit"
     "click input.post-status": "submit",
     "click input.post-photo": "postPhoto"
 
@@ -22,28 +21,28 @@ SpaceFace.Views.PostForm = Backbone.View.extend({
         o.dataType = "json";
       },
       complete: function(XMLHttpRequest, textStatus) {
-        console.log(textStatus);
-        console.log(XMLHttpRequest);
         if(textStatus === "success"){
           var post = new SpaceFace.Models.Post(XMLHttpRequest.responseJSON);
           post.set({
             feedable: new SpaceFace.Models.Photo(post.get("feedable"))
           });
-          
-
           SpaceFace.Posts.unshift(post);
         }
         
         
       }
     });
+    $(".photo-description").val("");
   },
 
   submit: function(event) {
     event.preventDefault();
+    
     console.log("Submitted a form!!!!");
     console.log($(event.target.form));
     var attrs = $(event.target.form).serializeJSON();
+    $(".status-update").val("");
+    
     // form attributes decide which type of object to create
     switch(attrs.item_type) {
       case "StatusUpdate":
@@ -55,11 +54,8 @@ SpaceFace.Views.PostForm = Backbone.View.extend({
       default:
       break;
     }
-
     this.model.save(attrs, {
       success: function(a, response) {
-        console.log("Model created successfully!!!");
-        console.log (response);
         var post = new SpaceFace.Models.Post();
         post.set(response);
         var statusJSON = post.get("feedable");
@@ -80,7 +76,7 @@ SpaceFace.Views.PostForm = Backbone.View.extend({
 
       }
     });
-    console.log(this.model);
+
     
   }
 
