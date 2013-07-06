@@ -13,6 +13,7 @@ window.SpaceFace = {
       "$sidebar": $("#sidebar"),
       "$topbar": $("#topbar")
     });
+    router.topbar();
 
     Backbone.history.start();
   }
