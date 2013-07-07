@@ -11,9 +11,10 @@ SpaceFace.Views.PostsIndex = Backbone.View.extend({
   render: function() {
     var that = this;
     that.$el.empty();
+
     that.collection.each(function(post) {
       var feed_item = post.get("feedable");
-
+      debugger;
       that.$el.append(feed_item.render().$el);
 
     });

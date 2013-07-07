@@ -14,6 +14,7 @@ SpaceFace::Application.routes.draw do
   resource :friend_request, :only => [:create] do
     post "accept", :on => :member
   end
+  resource :like, :only => [:create]
 
   
 end

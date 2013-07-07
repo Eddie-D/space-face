@@ -9,6 +9,7 @@ class StatusUpdate < ActiveRecord::Base
   belongs_to :user
 
   has_one :feed_item, :as => :feedable
+  has_many :likes, :as => :likeable
 
   def create_feed_item
     FeedItem.create(:user_id => self.user_id,

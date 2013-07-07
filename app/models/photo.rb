@@ -6,6 +6,7 @@ class Photo < ActiveRecord::Base
   belongs_to :user
 
   has_one :feed_item, :as => :feedable
+  has_many :likes, :as => :likeable
 
   has_attached_file :photo
 

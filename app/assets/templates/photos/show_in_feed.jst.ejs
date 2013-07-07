@@ -12,6 +12,12 @@
       <img src="<%= photo.get('url') %>" />
     </div>
     <ul class="inline-list">
+      <li><%= photo.get("likes").length %> likes</li>
+      <li>
+        <div>
+          <button class="tiny button like" data-id="<%= photo.id %>">Like</button>
+        </div>
+      </li>
       <li><a href="">Reply</a></li>
       <li><a href="">Share</a></li>
     </ul>

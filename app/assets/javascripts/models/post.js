@@ -1,4 +1,4 @@
-SpaceFace.Models.Post = Backbone.Model.extend({
+SpaceFace.Models.Post = Backbone.RelationalModel.extend({
 
   parse: function(resp) {
     console.log("parsing....");
@@ -7,6 +7,7 @@ SpaceFace.Models.Post = Backbone.Model.extend({
         resp.feedable = new SpaceFace.Models.StatusUpdate(resp.feedable);
       break;
       case "Photo":
+        debugger
         resp.feedable = new SpaceFace.Models.Photo(resp.feedable);
       break;
       default: 

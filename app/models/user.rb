@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :status_updates
   has_many :photos
   has_many :feed_items
+  has_many :likes
 
   has_many :requests,
            :foreign_key => :friend_id,

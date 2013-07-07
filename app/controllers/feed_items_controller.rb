@@ -17,7 +17,7 @@ class FeedItemsController < ApplicationController
 
     items = FeedItem.where(:user_id => users).includes(:feedable => :user).reverse
     feed_items = items.to_json(:include => {:feedable => {
-                                              :include => :user
+                                              :include => [:user, :likes]
                                               }
                                             })
     render :json => feed_items
