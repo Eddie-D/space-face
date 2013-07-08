@@ -10,7 +10,8 @@ SpaceFace.Routers.Posts = Backbone.Router.extend({
     "": "index",
     "profile": "profile",
     "friends": "friends",
-    "users/search?q=:search": "searchUsers"
+    "users/search?q=:search": "searchUsers",
+    "friend_requests": "friendRequests"
   },
 
   topbar: function() {
@@ -77,7 +78,7 @@ SpaceFace.Routers.Posts = Backbone.Router.extend({
     });
   },
 
-  profile: function() {
+  friendRequests: function() {
     var requestsView = new SpaceFace.Views.FriendRequestsIndex({
       collection: SpaceFace.CurrentUser.get("friendRequests")
     });

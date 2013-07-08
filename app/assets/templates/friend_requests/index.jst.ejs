@@ -1,6 +1,8 @@
 <% requests.each(function(request) { %>
   <div class="row request-<%= request.id %>">
-    <div class="small-3 large-2 columns "><img src="http://placehold.it/80x80&text=[img]" /></div>
+    <div class="small-3 large-2 columns ">
+      <img src="<%= request.get('sender').get('profile_img_url') %>" />
+    </div>
     <div class="small-7 large-8 columns">
       <p><strong><%= request.get("sender").get("name") %></strong> 
       <br>

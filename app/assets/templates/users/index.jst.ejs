@@ -1,13 +1,15 @@
 <% users.each(function(user) { %>
   <div class="row">
-    <div class="small-3 large-2 columns "><img src="http://placehold.it/80x80&text=[img]" /></div>
+    <div class="small-3 large-2 columns ">
+      <img src="<%= user.get('profile_img_url') %>" />
+    </div>
     <div class="small-7 large-7 columns">
       <p><strong><%= user.get("name") %></strong> 
       <br>
       <%= user.get("email") %>
     </div>
     <div class="small-2 large-3 columns">
-      <% if (!user.isFriend()) { %>
+      <% if (!user.isFriend() && !user.isCurrentUser()) { %>
         <button class="small button request" data-id="<%= user.id %>">Send Friend Request</button>
       <% } %>
     </div>

@@ -27,6 +27,15 @@ SpaceFace.Models.User = Backbone.RelationalModel.extend({
     }else {
       return false;
     }
+  },
+
+  isCurrentUser: function() {
+    if (SpaceFace.CurrentUser.id === this.id) {
+      return true;
+    }else{
+      return false;
+    };
   }
+
 
 });

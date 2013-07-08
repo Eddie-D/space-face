@@ -1,16 +1,13 @@
 <% friends.each(function(friend) { %>
   <div class="row">
-    <div class="small-3 large-2 columns "><img src="http://placehold.it/80x80&text=[img]" /></div>
+    <div class="small-3 large-2 columns ">
+      <img src="<%= friend.get('profile_img_url') %>" />
+    </div>
     <div class="small-9 large-10 columns">
       <p><strong><%= friend.get("name") %></strong> 
       <br>
       <%= friend.get("email") %>
     </div>
-    <!-- <div class="small-2 large-3 columns">
-      <% if (!friend.isFriend()) { %>
-        <button class="small button request" data-id="<%= friend.id %>">Send Friend Request</button>
-      <% } %>
-    </div> -->
   </div>
   <hr />
 <% }); %>
