@@ -1,4 +1,4 @@
-SpaceFace.Models.Photo = Backbone.RelationalModel.extend({
+SpaceFace.Models.Photo = Backbone.Model.extend({
 
   url: "/photos",
 
