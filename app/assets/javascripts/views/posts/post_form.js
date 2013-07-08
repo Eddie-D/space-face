@@ -26,6 +26,9 @@ SpaceFace.Views.PostForm = Backbone.View.extend({
           post.set({
             feedable: new SpaceFace.Models.Photo(post.get("feedable"))
           });
+          post.get("feedable").set({
+            likes: new SpaceFace.Collections.Likes()
+          });
           SpaceFace.Posts.unshift(post);
         }
         
@@ -53,7 +56,10 @@ SpaceFace.Views.PostForm = Backbone.View.extend({
         post.set({
           feedable: new SpaceFace.Models.StatusUpdate(post.get("feedable"))
         });
-        console.log(response);
+        post.get("feedable").set({
+          likes: new SpaceFace.Collections.Likes()
+        });
+        console.log(post);
         SpaceFace.Posts.unshift(post);
       }
     })
