@@ -69,7 +69,7 @@ SpaceFace.Routers.Posts = Backbone.Router.extend({
         var users = new SpaceFace.Collections.Users(data);
         console.log(users);
 
-        var usersView = new SpaceFace.Views.FriendsIndex({
+        var usersView = new SpaceFace.Views.UsersIndex({
           collection: users
         });
         that.$content.html(usersView.render().$el);

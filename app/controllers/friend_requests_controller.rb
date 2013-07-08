@@ -3,7 +3,6 @@ class FriendRequestsController < ApplicationController
   def accept
     friend_request = FriendRequest.find(params[:id])
     friend_request.accept_request
-
     render :json => friend_request
   end
 
@@ -12,5 +11,11 @@ class FriendRequestsController < ApplicationController
     if request.save
       render :json => request
     end
+  end
+
+  def reject
+    friend_request = FriendRequest.find(params[:id])
+    FriendRequest.delete(friend_request)
+    render :json => friend_request
   end
 end

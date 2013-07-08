@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130706080035) do
+ActiveRecord::Schema.define(:version => 20130708222437) do
 
   create_table "feed_items", :force => true do |t|
     t.integer  "user_id"
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(:version => 20130706080035) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                  :default => "",                                                                            :null => false
+    t.string   "encrypted_password",     :default => "",                                                                            :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -73,10 +73,10 @@ ActiveRecord::Schema.define(:version => 20130706080035) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                                                                                        :null => false
+    t.datetime "updated_at",                                                                                                        :null => false
     t.string   "name"
-    t.string   "profile_img_url"
+    t.string   "profile_img_url",        :default => "https://s3-us-west-2.amazonaws.com/space-face-dev/photos/default-avatar.png"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

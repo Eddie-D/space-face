@@ -13,6 +13,7 @@ SpaceFace::Application.routes.draw do
   resources :photos, :only => [:create]
   resource :friend_request, :only => [:create] do
     post "accept", :on => :member
+    post "reject", :on => :member
   end
   resource :like, :only => [:create, :destroy]
 

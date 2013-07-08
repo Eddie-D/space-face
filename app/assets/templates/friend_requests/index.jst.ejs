@@ -1,18 +1,21 @@
 <% requests.each(function(request) { %>
-  <div class="row">
+  <div class="row request-<%= request.id %>">
     <div class="small-3 large-2 columns "><img src="http://placehold.it/80x80&text=[img]" /></div>
     <div class="small-7 large-8 columns">
       <p><strong><%= request.get("sender").get("name") %></strong> 
       <br>
       <%= request.get("sender").get("email") %>
     </div>
-    <div class="small-2 large-2 columns">
-      <button class="tiny button accept" data-id="<%= request.escape('id') %>">
+    <div class="small-2 large-2 columns response-buttons">
+      <button class="tiny button accept" data-id="<%= request.id %>">
         Accept
       </button>
       <br>
-      <button class="tiny button alert decline">Decline</button>
+      <button class="tiny button alert decline" data-id="<%= request.id %>">
+        Decline
+      </button>
     </div>
+    <hr />
   </div>
-  <hr />
+  
 <% }); %>
