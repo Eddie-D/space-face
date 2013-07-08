@@ -28,7 +28,6 @@ SpaceFace.Routers.Posts = Backbone.Router.extend({
     SpaceFace.Posts = new SpaceFace.Collections.Posts();
     SpaceFace.Posts.fetch({
       success: function(a, resp) {
-        debugger;
         var indexView = new SpaceFace.Views.PostsIndex({
           collection: SpaceFace.Posts
         });

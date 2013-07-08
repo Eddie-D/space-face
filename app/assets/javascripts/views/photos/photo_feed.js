@@ -3,11 +3,16 @@ SpaceFace.Views.PhotoFeed = Backbone.View.extend({
   template: JST['photos/show_in_feed'],
 
   events: {
-    "click button.like": "like"
+    "click button.like": "like",
+    "click button.unlike": "unlike"
+  },
+
+  initialize: function() {
+    var that = this;
+    that.listenTo(that.model, "change", that.render);
   },
 
   render: function() {
-
     var renderedContent = this.template({
       photo: this.model
     });
@@ -18,7 +23,7 @@ SpaceFace.Views.PhotoFeed = Backbone.View.extend({
   },
 
   like: function(event) {
-
+    var that = this;
     var id = $(event.target).attr("data-id");
     $.ajax({
       url: "/like",
@@ -28,14 +33,41 @@ SpaceFace.Views.PhotoFeed = Backbone.View.extend({
           likeable_id: id,
           likeable_type: "Photo"  
         }
-        
       },
       success: function(response) {
-        console.log("Successful like!!!!");
-        console.log(response);
+        var like = new SpaceFace.Models.Like(response);
+        that.model.get("likes").add(like);
+        that.model.set({
+          is_liked: true
+        });
+      }
+    });
+  },
+
+  unlike: function(event) {
+    var that = this;
+    var id = $(event.target).attr("data-id");
+    $.ajax({
+      url: "/like",
+      type: "delete",
+      data: {
+        like: {
+          likeable_id: id,
+          likeable_type: "Photo"
+        }
+      },
+      success: function(response) {
+        var like = that.model.get("likes").findWhere({
+          likeable_id: parseInt(id),
+          likeable_type: "Photo",
+          user_id: SpaceFace.CurrentUser.id
+        })
+        that.model.get("likes").remove(like);
+        that.model.set({
+          is_liked: false
+        });
       }
     })
-
   }
 
 });

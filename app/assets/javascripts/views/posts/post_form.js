@@ -37,47 +37,27 @@ SpaceFace.Views.PostForm = Backbone.View.extend({
 
   submit: function(event) {
     event.preventDefault();
-    
-    console.log("Submitted a form!!!!");
-    console.log($(event.target.form));
+
     var attrs = $(event.target.form).serializeJSON();
     $(".status-update").val("");
     
-    // form attributes decide which type of object to create
-    switch(attrs.item_type) {
-      case "StatusUpdate":
-        this.model = new SpaceFace.Models.StatusUpdate();
-      break;
-      case "Photo":
-        this.model = new SpaceFace.Models.Photo();
-      break;
-      default:
-      break;
-    }
-    this.model.save(attrs, {
-      success: function(a, response) {
-        var post = new SpaceFace.Models.Post();
-        post.set(response);
-        var statusJSON = post.get("feedable");
-        switch(post.get("feedable_type")) {
-          case "StatusUpdate":
-            post.set({
-              feedable: new SpaceFace.Models.StatusUpdate(post.get("feedable"))
-            });
-          break;
-          case "Photo":
-            post.set({
-              feedable: new SpaceFace.Models.Photo(post.get("feedable"))
-            });
-          default:
-          break;
-        }
+    $.ajax({
+      url: "/status_updates",
+      type: "post",
+      data:{
+        status_update: attrs
+      },
+      success: function(response) {
+        
+        var post = new SpaceFace.Models.Post(response)
+        post.set({
+          feedable: new SpaceFace.Models.StatusUpdate(post.get("feedable"))
+        });
+        console.log(response);
         SpaceFace.Posts.unshift(post);
-
       }
-    });
+    })
 
-    
   }
 
 });

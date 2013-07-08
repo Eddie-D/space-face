@@ -8,7 +8,7 @@ class StatusUpdatesController < ApplicationController
     if status_update.save
       feed_item = status_update.create_feed_item
       feed_item = feed_item.to_json(:include => {:feedable => {
-                                                  :include => :user
+                                                  :include => [:user, :likes]
                                                   }
                                                 })
       render :json => feed_item

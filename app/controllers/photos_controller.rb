@@ -12,7 +12,7 @@ class PhotosController < ApplicationController
     if photo.save
       feed_item = photo.create_feed_item
       feed_item = feed_item.to_json(:include => {:feedable => {
-                                                  :include => :user
+                                                  :include => [:user, :likes]
                                                   }
                                                 })
       render :json => feed_item

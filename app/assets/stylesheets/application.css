@@ -13,4 +13,13 @@
  *= require_tree ../../../vendor/assets/stylesheets
  */
 
+.like-buttons.liked button.like {
+  display: none;
+}
+
+.like-buttons.not-liked button.unlike {
+  display: none;
+}
+
+
  *= require foundation_and_overrides

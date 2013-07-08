@@ -16,12 +16,23 @@ class Photo < ActiveRecord::Base
                     :feedable_type => "Photo")
   end
 
+  def is_liked
+    likes.each do |like|
+      if User.current.likes.include?(like)
+        return true
+      end
+    end
+    return false
+  end
+
   def url
     photo.url
   end
 
   def serializable_hash(options = {})
-    super(options.merge({ :methods => [:url] }))
+    super(options.merge({ :methods => [:url, :is_liked] }))
   end
+
+  
 
 end

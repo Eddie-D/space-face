@@ -7,8 +7,16 @@
     <br>
     <%= status.escape("body") %>
     <ul class="inline-list">
-      <li><a href="">Reply</a></li>
-      <li><a href="">Share</a></li>
+      <li><%= status.get("likes").length %> likes</li>
+      <li>
+        <% liked_class = status.get('is_liked') ? 'liked' : 'not-liked' %> 
+        <div class="<%= liked_class %> like-buttons">
+          <button class="tiny button like" data-id="<%= status.id %>">Like</button>
+          <button class="tiny button unlike" data-id="<%= status.id %>">Unlike</button>
+        </div>
+      </li>
+      <!-- <li><a href="">Reply</a></li>
+      <li><a href="">Share</a></li> -->
     </ul>
   </div>
 </div>

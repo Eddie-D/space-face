@@ -14,7 +14,7 @@ SpaceFace.Models.User = Backbone.RelationalModel.extend({
     key:"friends",
     relatedModel: "SpaceFace.Models.User",
     collectionType: "SpaceFace.Collections.Users"
-  },{ 
+  },{
     type: Backbone.HasMany,
     key: "likes",
     relatedModel: "SpaceFace.Models.Like",
