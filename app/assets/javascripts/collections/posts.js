@@ -3,7 +3,9 @@ SpaceFace.Collections.Posts = Backbone.Collection.extend({
   model: SpaceFace.Models.Post,
   
   initialize: function(options) {
-    this.user_id = options.user_id;
+    if (options) {
+      this.user_id = options.user_id;  
+    };
   },
 
   url: function(){
