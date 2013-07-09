@@ -21,5 +21,10 @@
   display: none;
 }
 
+.thumbnail {
+  height: 100px;
+  width: auto;
+}
 
  *= require foundation_and_overrides
+

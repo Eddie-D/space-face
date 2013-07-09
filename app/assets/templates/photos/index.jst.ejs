@@ -1,12 +1,14 @@
-<div class="carousel">
+<h1>Photos</h1>
+<div class="small-12 large-12 columns">
   <ul class="clearing-thumbs" data-clearing>
     <% photos.each(function(photo) { %>
 
-    <li>
+    <li class="th">
       <a href="<%= photo.get('url') %>">
         <img 
           data-caption="<%= photo.get('description') %>" 
-          src="<%= photo.get('url') %>">
+          src="<%= photo.get('url') %>"
+          class="thumbnail">
       </a>
     </li>
     <% }) %>
