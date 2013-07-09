@@ -19,6 +19,4 @@ SpaceFace.Collections.Posts = Backbone.Collection.extend({
     return url;
   }
 
-  // url: "/feed_items"
-
 });
