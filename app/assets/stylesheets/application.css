@@ -26,5 +26,10 @@
   width: auto;
 }
 
+.profile-bar {
+  padding-bottom: 100px;
+}
+
+
  *= require foundation_and_overrides
 

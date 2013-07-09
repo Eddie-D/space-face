@@ -113,7 +113,6 @@ SpaceFace.Routers.Posts = Backbone.Router.extend({
     var posts = new SpaceFace.Collections.Posts({
       user_id: SpaceFace.CurrentUser.id
     });
-    debugger;
     posts.fetch({
       success: function(obj, resp){
 
