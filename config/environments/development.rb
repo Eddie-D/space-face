@@ -37,14 +37,17 @@ SpaceFace::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
+  Paperclip.options[:command_path] = "/usr/local/bin/"
+  
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => "space-face-dev",
-      :access_key_id => "AKIAIQ2OJJZGUMG5NHCA" ,
-      :secret_access_key => "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"
+      :bucket => ENV['AWS_BUCKET'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     },
     :s3_host_name => "s3-us-west-2.amazonaws.com/"
   }
   
+
 end
