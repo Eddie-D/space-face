@@ -19,7 +19,7 @@
 //= require foundation
 
 //= require underscore
-//=require jquery-fileupload/basic
+//= require jquery-fileupload/basic
 //= require backbone
 //= jqueryfileuploadbackbone
 //= require backbone-relational
