@@ -1,0 +1,14 @@
+<div class="carousel">
+  <ul class="clearing-thumbs" data-clearing>
+    <% photos.each(function(photo) { %>
+
+    <li>
+      <a href="<%= photo.get('url') %>">
+        <img 
+          data-caption="<%= photo.get('description') %>" 
+          src="<%= photo.get('url') %>">
+      </a>
+    </li>
+    <% }) %>
+  </ul>
+</div>

@@ -15,7 +15,9 @@
 //= require jquery.serializeJSON
 //= require jquery.form
 
+//= require zepto
 //= require foundation
+
 //= require underscore
 //=require jquery-fileupload/basic
 //= require backbone

@@ -2,7 +2,6 @@ class PhotosController < ApplicationController
 
   def index
     photos = Photo.where(:user_id => params[:user_id])
-
     render :json => photos
   end
 

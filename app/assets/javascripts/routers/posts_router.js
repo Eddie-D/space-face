@@ -11,7 +11,8 @@ SpaceFace.Routers.Posts = Backbone.Router.extend({
     "profile": "profile",
     "friends": "friends",
     "users/search?q=:search": "searchUsers",
-    "friend_requests": "friendRequests"
+    "friend_requests": "friendRequests",
+    "users/:user_id/photos": "photos" 
   },
 
   topbar: function() {
@@ -84,6 +85,21 @@ SpaceFace.Routers.Posts = Backbone.Router.extend({
     });
 
     this.$content.html(requestsView.render().$el);
+  },
+
+  photos: function(user_id) {
+    var that = this;
+    var url = "/users/" + user_id + "/photos";
+    $.ajax({
+      url: url,
+      success: function(data) {
+        var photos = new SpaceFace.Collections.Photos(data);
+        var photoView = new SpaceFace.Views.PhotosIndex({
+          collection: photos
+        });
+        that.$content.html(photoView.render().$el);
+      }
+    });
   }
 
 });

@@ -1,6 +1,6 @@
 SpaceFace.Models.Photo = Backbone.Model.extend({
 
-  url: "/photos",
+  // url: "/photos",
 
   parse: function(data) {
     data.likes = new SpaceFace.Collections.Likes(data.likes);
