@@ -100,6 +100,30 @@ SpaceFace.Routers.Posts = Backbone.Router.extend({
         that.$content.html(photoView.render().$el);
       }
     });
+  },
+
+  profile: function() {
+    var that = this;
+    that.$content.empty();
+    var profileView = new SpaceFace.Views.Profile({
+      model:SpaceFace.CurrentUser
+    });
+    that.$content.append(profileView.render().$el);
+
+    var posts = new SpaceFace.Collections.Posts({
+      user_id: SpaceFace.CurrentUser.id
+    });
+    debugger;
+    posts.fetch({
+      success: function(obj, resp){
+
+        var postsView = new SpaceFace.Views.PostsIndex({
+          collection: obj
+        });
+        that.$content.append(postsView.render().$el);
+      }
+    })
+
   }
 
 });

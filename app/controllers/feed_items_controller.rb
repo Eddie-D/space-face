@@ -11,9 +11,14 @@ class FeedItemsController < ApplicationController
   end
 
   def index
-    users = current_user.friends.all
-    users << current_user
-    users.map! { |u| u.id }
+    users = nil
+    if params[:user_id]
+      users = params[:user_id]
+    else
+      users = current_user.friends.all
+      users << current_user
+      users.map! { |u| u.id }  
+    end
 
     items = FeedItem.where(:user_id => users).includes(:feedable => :user).reverse
     feed_items = items.to_json(:include => {:feedable => {

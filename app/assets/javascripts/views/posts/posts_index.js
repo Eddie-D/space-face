@@ -4,7 +4,7 @@ SpaceFace.Views.PostsIndex = Backbone.View.extend({
 
   initialize: function() {
     var that = this;
-    this.listenTo(SpaceFace.Posts, "add", that.render);
+    this.listenTo(this.collection, "add", that.render);
   },
 
   render: function() {
