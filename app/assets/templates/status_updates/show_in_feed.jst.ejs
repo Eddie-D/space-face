@@ -15,9 +15,13 @@
           <button class="tiny button unlike" data-id="<%= status.id %>">Unlike</button>
         </div>
       </li>
-      <!-- <li><a href="">Reply</a></li>
-      <li><a href="">Share</a></li> -->
     </ul>
+    <div>
+      <% status.get('comments').each(function(comment) { %>
+        <%= JST["comments/comment"]({comment: comment, user: status.get('user')}) %>
+      <% }) %>
+    </div>
+    <%= JST["comments/comment_form"]({post: status}) %>
   </div>
 </div>
 <hr />

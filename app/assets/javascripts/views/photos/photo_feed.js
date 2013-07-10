@@ -11,7 +11,6 @@ SpaceFace.Views.PhotoFeed = Backbone.View.extend({
   initialize: function() {
     var that = this;
     that.listenTo(that.model, "change", that.render);
-
     that.listenTo(that.model.get("comments"), "add", that.render);
   },
 

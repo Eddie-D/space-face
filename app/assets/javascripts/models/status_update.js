@@ -3,6 +3,7 @@ SpaceFace.Models.StatusUpdate = Backbone.Model.extend({
 
   parse: function(data) {
     data.likes = new SpaceFace.Collections.Likes(data.likes);
+    data.comments = new SpaceFace.Collections.Comments(data.comments);
     return data;    
   },
 

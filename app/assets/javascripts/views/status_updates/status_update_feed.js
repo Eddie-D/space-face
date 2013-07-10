@@ -4,12 +4,14 @@ SpaceFace.Views.StatusUpdateFeed = Backbone.View.extend({
 
    events: {
     "click button.like": "like",
-    "click button.unlike": "unlike"
+    "click button.unlike": "unlike",
+    "click input.comment": "comment"
   },
 
   initialize: function() {
     var that = this;
     that.listenTo(that.model, "change", that.render);
+    that.listenTo(that.model.get("comments"), "add", that.render);
   },
 
   render: function() {
@@ -66,6 +68,27 @@ SpaceFace.Views.StatusUpdateFeed = Backbone.View.extend({
         that.model.set({
           is_liked: false
         });
+      }
+    })
+  },
+
+  comment: function(event) {
+    var that = this;
+    event.preventDefault();
+    var attrs = $(event.target.form).serializeJSON();
+    $.ajax({
+      url: "/comment",
+      type: "post",
+      data: {
+        comment:{
+          body: attrs.body,
+          commentable_id: parseInt(attrs.commentable_id),
+          commentable_type: "StatusUpdate"
+        }
+      },
+      success: function(data) {
+        var comment = new SpaceFace.Models.Comment(data);
+        that.model.get("comments").add(comment);
       }
     })
   }
