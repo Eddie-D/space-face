@@ -10,6 +10,7 @@ class StatusUpdate < ActiveRecord::Base
 
   has_one :feed_item, :as => :feedable
   has_many :likes, :as => :likeable
+  has_many :comments, :as => :commentable
 
   def create_feed_item
     FeedItem.create(:user_id => self.user_id,

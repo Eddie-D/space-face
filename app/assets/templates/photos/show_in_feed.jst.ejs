@@ -16,13 +16,21 @@
       <li>
         <% liked_class = photo.get('is_liked') ? 'liked' : 'not-liked' %> 
         <div class="<%= liked_class %> like-buttons">
-          <button class="tiny button like" data-id="<%= photo.id %>">Like</button>
-          <button class="tiny button unlike" data-id="<%= photo.id %>">Unlike</button>
+          <button class="tiny button like" data-id="<%= photo.id %>">
+            Like
+          </button>
+          <button class="tiny button unlike" data-id="<%= photo.id %>">
+            Unlike
+          </button>
         </div>
       </li>
-      <!-- <li><a href="">Reply</a></li>
-      <li><a href="">Share</a></li> -->
     </ul>
+    <div>
+      <% photo.get('comments').each(function(comment) { %>
+        <%= JST["comments/comment"]({comment: comment, user: photo.get('user')}) %>
+      <% }) %>
+    </div>
+    <%= JST["comments/comment_form"]({photo: photo}) %>
   </div>
 </div>
 <hr />

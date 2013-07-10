@@ -7,6 +7,7 @@ class Photo < ActiveRecord::Base
 
   has_one :feed_item, :as => :feedable
   has_many :likes, :as => :likeable
+  has_many :comments, :as => :commentable
 
   has_attached_file :photo
 

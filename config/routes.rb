@@ -17,6 +17,7 @@ SpaceFace::Application.routes.draw do
     post "reject", :on => :member
   end
   resource :like, :only => [:create, :destroy]
+  resource :comment, :only => [:create]
 
   
 end
