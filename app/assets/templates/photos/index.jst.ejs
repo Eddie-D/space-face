@@ -3,10 +3,9 @@
   <ul class="clearing-thumbs" data-clearing>
     <% photos.each(function(photo) { %>
 
-    <li class="th">
-      <a href="<%= photo.get('url') %>">
+    <li>
+      <a class="th" href="<%= photo.get('url') %>">
         <img 
-          data-caption="<%= photo.get('description') %>" 
           src="<%= photo.get('url') %>"
           class="thumbnail">
       </a>

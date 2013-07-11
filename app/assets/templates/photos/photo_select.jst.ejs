@@ -1,0 +1,19 @@
+<h5>Select your profile picture</h5>
+<div class="photo-select">
+  <ul class="inline-list image-list">
+    <% photos.each(function(photo){ %>
+      <li class="th image">
+        <img class="thumbnail" src="<%= photo.get('url') %>">
+      </li>
+    <% }) %>
+  </ul>
+</div>
+
+<script>
+  var items = $(".image");
+  var width = 0;
+  $.each(items, function(index, item) {
+    width = width + $(item).outerWidth(true);
+  });
+  $(".image-list").width(width);
+</script>

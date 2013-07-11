@@ -21,6 +21,11 @@ SpaceFace.Models.User = Backbone.RelationalModel.extend({
     collectionType: "SpaceFace.Collections.Likes"
   }],
 
+  url: function() {
+    var url = "/users/" + this.id;
+    return url;
+  },
+
   isFriend: function() {
     if (SpaceFace.CurrentUser.get("friends").findWhere({id: this.id})) {
       return true;

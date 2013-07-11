@@ -4,6 +4,7 @@ SpaceFace.Routers.Posts = Backbone.Router.extend({
     this.$content = options.$content;
     this.$sidebar = options.$sidebar; 
     this.$topbar = options.$topbar;
+    this.$sidebar = options.$sidebar;
   },
 
   routes: {
@@ -18,6 +19,11 @@ SpaceFace.Routers.Posts = Backbone.Router.extend({
   topbar: function() {
     var topbarView = new SpaceFace.Views.Topbar();
     this.$topbar.html(topbarView.render().$el);
+  },
+
+  sidebar: function() {
+    var sidebarView = new SpaceFace.Views.Sidebar();
+    this.$sidebar.html(sidebarView.render().$el);
   },
 
   index: function() {
@@ -115,7 +121,19 @@ SpaceFace.Routers.Posts = Backbone.Router.extend({
     });
     posts.fetch({
       success: function(obj, resp){
+        var photoPosts = new SpaceFace.Collections.Posts(
+          obj.where({
+            feedable_type: "Photo"
+          })
+        );
 
+        var photos = new SpaceFace.Collections.Photos(
+          photoPosts.pluck("feedable")
+        )
+        
+        SpaceFace.CurrentUser.set({
+          photos: photos
+        })
         var postsView = new SpaceFace.Views.PostsIndex({
           collection: obj
         });

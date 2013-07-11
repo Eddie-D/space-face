@@ -10,9 +10,11 @@ window.SpaceFace = {
     router = new SpaceFace.Routers.Posts({
       "$content": $("#content"),
       "$sidebar": $("#sidebar"),
-      "$topbar": $("#topbar")
+      "$topbar": $("#topbar"),
+      "$sidebar": $("#sidebar")
     });
     router.topbar();
+    router.sidebar();
 
     Backbone.history.start();
   }

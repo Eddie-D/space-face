@@ -1,11 +1,8 @@
-
-<div id="content" class="large-9 columns push-3" ></div>
-
-
-<div id="sidebar" class="large-3 columns pull-9">
-  <!-- <div class="panel">
-    <a href="#"><img src="<%= current_user.profile_img_url %>" /></a>
-    <h5> <%= current_user.name %> </h5>
+<div class="panel">
+    <a href="#">
+      <img src="<%= SpaceFace.CurrentUser.get('profile_img_url') %>" />
+    </a>
+    <h5> <%= SpaceFace.CurrentUser.get("name") %> </h5>
     <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
       <section class="section">
         <h5 class="title"><a href="#">News Feed</a></h5>
@@ -20,21 +17,10 @@
         <h5 class="title"><a href="#/friend_requests">Friend Requests</a></h5>
       </section>
       <section class="section">
-        <h5 class="title"><a href="#/users/<%= current_user.id %>/photos">Photos</a></h5>
+        <h5 class="title">
+          <a href="#/users/<%= SpaceFace.CurrentUser.id %>/photos">Photos</a>
+        </h5>
       </section>
     </div>
 
-  </div> -->
-</div>
-
-
-
-<script type="application/json" id="current_user">
-  <%= @user.html_safe %>
-</script>
-
-<script>
-  $(function() {
-    SpaceFace.initialize();
-  })
-</script>
+  </div>

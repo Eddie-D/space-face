@@ -2,7 +2,7 @@ SpaceFace::Application.routes.draw do
 
   root :to => "root#root"
   devise_for :users
-  resources :users, :only => [:index, :show] do
+  resources :users, :only => [:index, :show, :update] do
     resources :feed_items, :only => [:index]
     resources :friends, :only => [:index]
     resources :photos, :only => [:index]
