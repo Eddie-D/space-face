@@ -9,8 +9,10 @@
     <div class="content" data-slug="panel1" style>
       <form>
         <!-- <input type="hidden" name="item_type" value="StatusUpdate"> -->
-        <textarea name="body" class="status-update"></textarea>
-        <input type="submit" class="post-status">
+        <textarea name="body" 
+                  class="status-update" 
+                  placeholder="Type your status here"></textarea>
+        <input class="tiny button" type="submit" class="post-status" value="Update">
       </form>
     </div>
   </section>
@@ -32,11 +34,21 @@
         value= "<%= $('meta[name="csrf-token"]').attr('content') %>"
       />
 
-      <textarea name="photo[description]" class="photo-description"></textarea>
+      <textarea name="photo[description]" 
+                class="photo-description"
+                placeholder="Add a description"></textarea>
       <br>
 
-      Upload : <input id="photo_photo" name="photo[photo]" type="file" /> 
-      <input name="commit" type="submit" value="Save Photo" class="post-photo" />
+      Upload : 
+      <input id="photo_photo" 
+             name="photo[photo]" 
+             type="file" /> 
+
+      <input class="tiny button" 
+             name="commit" 
+             type="submit" 
+             value="Post Photo" 
+             class="post-photo" />
     </form>
     </div>
   </section>
