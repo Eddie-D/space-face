@@ -87,7 +87,7 @@ SpaceFace.Views.PhotoFeed = Backbone.View.extend({
         }
       },
       success: function(data) {
-        var comment = new SpaceFace.Models.Comment(data);
+        var comment = new SpaceFace.Models.Comment(data, {parse: true});
         that.model.get("comments").add(comment);
       }
     })

@@ -27,7 +27,7 @@
     </ul>
     <div>
       <% photo.get('comments').each(function(comment) { %>
-        <%= JST["comments/comment"]({comment: comment, user: photo.get('user')}) %>
+        <%= JST["comments/comment"]({comment: comment}) %>
       <% }) %>
     </div>
     <%= JST["comments/comment_form"]({post: photo}) %>
