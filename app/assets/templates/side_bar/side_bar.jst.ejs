@@ -3,23 +3,31 @@
       <img src="<%= SpaceFace.CurrentUser.get('profile_img_url') %>" />
     </a>
     <h5> <%= SpaceFace.CurrentUser.get("name") %> </h5>
-    <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
-      <section class="section">
-        <h5 class="title"><a href="#">News Feed</a></h5>
+    <div class="vertical-tabs" data-section="vertical-tabs">
+      <section>
+        <p class="title" data-section-title>
+          <a href="#">News Feed</a>
+        </p>
       </section>
-      <section class="section">
-        <h5 class="title"><a href="#/profile">Profile</a></h5>
-      </section>  
-      <section class="section">
-        <h5 class="title"><a href="#/friends">Friends</a></h5>
+      <section>
+        <p class="title" data-section-title>
+          <a href="#/profile">Profile</a>
+        </p>
+      </section>      
+      <section>
+        <p class="title" data-section-title>
+          <a href="#/friends">Friends</a>
+        </p>
       </section>
-      <section class="section">
-        <h5 class="title"><a href="#/friend_requests">Friend Requests</a></h5>
+      <section>
+        <p class="title" data-section-title>
+          <a href="#/friend_requests">Friend Requests</a>
+        </p>
       </section>
-      <section class="section">
-        <h5 class="title">
+      <section>
+        <p class="title" data-section-title>
           <a href="#/users/<%= SpaceFace.CurrentUser.id %>/photos">Photos</a>
-        </h5>
+        </p>
       </section>
     </div>
 
