@@ -1,4 +1,4 @@
-SpaceFace.Routers.Posts = Backbone.Router.extend({
+SpaceFace.Routers.Router = Backbone.Router.extend({
 
   initialize: function(options) {
     this.$content = options.$content;

@@ -7,7 +7,7 @@ window.SpaceFace = {
 
     var currentUserJson = JSON.parse($("#current_user").html());
     SpaceFace.CurrentUser = new SpaceFace.Models.User(currentUserJson); 
-    router = new SpaceFace.Routers.Posts({
+    router = new SpaceFace.Routers.Router({
       "$content": $("#content"),
       "$sidebar": $("#sidebar"),
       "$topbar": $("#topbar"),
