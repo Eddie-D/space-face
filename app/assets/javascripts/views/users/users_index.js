@@ -22,7 +22,6 @@ SpaceFace.Views.UsersIndex = Backbone.View.extend({
 
   request: function(event) {
     var that = this;
-
     var user_id = $(event.target).attr("data-id");
     $.ajax({
       url: "/friend_request",
@@ -31,7 +30,8 @@ SpaceFace.Views.UsersIndex = Backbone.View.extend({
         friend_id: user_id
       },
       success: function(response) {
-        console.log("success");
+        $(event.target).addClass("disabled");
+        $(event.target).html("Request sent");
       }
     })
   }
